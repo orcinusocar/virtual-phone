@@ -1,0 +1,853 @@
+/* 应用界面组件样式 */
+
+/* 设置应用 */
+.settings-app {
+    padding: 0;
+}
+
+.settings-group {
+    background: var(--bg-primary);
+    backdrop-filter: var(--blur-md);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-xl);
+    overflow: hidden;
+}
+
+.settings-item {
+    display: flex;
+    align-items: center;
+    padding: 15px var(--space-xl);
+    border-bottom: 1px solid var(--border-secondary);
+    transition: background var(--duration-fast) var(--ease-default);
+}
+
+.settings-item:last-child {
+    border-bottom: none;
+}
+
+.settings-item:hover {
+    background: var(--bg-secondary);
+}
+
+.settings-icon {
+    font-size: 28px;
+    margin-right: 15px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--gray-1), var(--gray-2));
+    backdrop-filter: var(--blur-md);
+    border: 1px solid var(--border-primary);
+    box-shadow: var(--shadow-md);
+    transition: all var(--duration-fast) var(--ease-default);
+}
+
+.settings-icon:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.settings-icon:active {
+    transform: scale(0.98);
+}
+
+.settings-label {
+    flex: 1;
+    font-size: var(--font-size-md);
+    font-weight: 500;
+}
+
+.settings-value {
+    font-size: var(--font-size-md);
+    opacity: 0.7;
+}
+
+.settings-toggle {
+    position: relative;
+}
+
+.settings-toggle input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+}
+
+.settings-toggle label {
+    display: block;
+    width: 50px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-default);
+}
+
+.settings-toggle label::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    background: white;
+    border-radius: var(--radius-round);
+    transition: all var(--duration-normal) var(--ease-default);
+}
+
+.settings-toggle input:checked + label {
+    background: var(--primary-green);
+}
+
+.settings-toggle input:checked + label::after {
+    transform: translateX(20px);
+}
+
+/* 备忘录应用 */
+.notes-app {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.notes-header {
+    padding: var(--space-xl) 0;
+    border-bottom: 1px solid var(--border-secondary);
+}
+
+.new-note-btn {
+    width: 100%;
+    padding: var(--space-md);
+    background: var(--bg-secondary);
+    border: none;
+    border-radius: var(--radius-md);
+    color: white;
+    font-size: var(--font-size-md);
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-default);
+}
+
+.new-note-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.notes-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-xl) 0;
+}
+
+.empty-notes {
+    text-align: center;
+    opacity: 0.6;
+    font-size: var(--font-size-md);
+    margin-top: 40px;
+}
+
+.note-item {
+    background: var(--bg-primary);
+    backdrop-filter: var(--blur-md);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-md);
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-default);
+}
+
+.note-item:hover {
+    background: var(--bg-secondary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.note-title {
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+}
+
+.note-preview {
+    font-size: var(--font-size-sm);
+    opacity: 0.8;
+    margin-bottom: var(--space-sm);
+    line-height: 1.4;
+}
+
+.note-date {
+    font-size: var(--font-size-xs);
+    opacity: 0.6;
+}
+
+.note-editor {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.note-editor input,
+.note-editor textarea {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    color: white;
+    font-size: var(--font-size-md);
+    font-family: inherit;
+}
+
+.note-editor input {
+    height: 48px;
+}
+
+.note-editor textarea {
+    flex: 1;
+    resize: none;
+    line-height: 1.5;
+}
+
+.note-editor input::placeholder,
+.note-editor textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.note-actions {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.note-actions button {
+    flex: 1;
+    padding: var(--space-md);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-md);
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-default);
+}
+
+.note-actions button:first-child {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.note-actions button:last-child {
+    background: var(--bg-secondary);
+    color: white;
+}
+
+.note-actions button:hover {
+    opacity: 0.8;
+}
+
+/* 计算器应用 */
+.calculator-app {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.calculator-display {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: var(--space-3xl) var(--space-xl);
+    font-size: var(--font-size-4xl);
+    font-weight: 300;
+    color: white;
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+    text-align: right;
+    overflow: hidden;
+    min-height: 120px;
+    position: relative;
+}
+
+.calculator-display::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+.calc-expression {
+	font-size: clamp(14px, 2.5vw, 20px);
+	opacity: 0.7;
+	margin-bottom: 6px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 100%;
+	text-align: right;
+}
+
+.calc-result {
+	white-space: nowrap;
+	line-height: 1.2;
+}
+
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: #1a1a1a;
+    padding: 2px;
+}
+
+.calc-btn {
+    aspect-ratio: 1;
+    border: none;
+    font-size: var(--font-size-2xl);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.calc-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+.calc-btn:hover::before {
+    opacity: 1;
+}
+
+/* 数字按键 */
+.calc-number {
+    background: linear-gradient(135deg, #4a4a4a 0%, #3a3a3a 100%);
+    color: white;
+    border: 1px solid #555;
+}
+
+.calc-number:hover {
+    background: linear-gradient(135deg, #5a5a5a 0%, #4a4a4a 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 运算符按键 */
+.calc-operator {
+    background: linear-gradient(135deg, #ff9500 0%, #ff8000 100%);
+    color: white;
+    border: 1px solid #ff8000;
+    font-weight: 600;
+}
+
+.calc-operator:hover {
+    background: linear-gradient(135deg, #ffaa00 0%, #ff9500 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 149, 0, 0.3);
+}
+
+/* 清除按键 */
+.calc-clear {
+    background: linear-gradient(135deg, #a6a6a6 0%, #8e8e8e 100%);
+    color: #1a1a1a;
+    border: 1px solid #8e8e8e;
+    font-weight: 600;
+}
+
+.calc-clear:hover {
+    background: linear-gradient(135deg, #b6b6b6 0%, #a6a6a6 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(166, 166, 166, 0.3);
+}
+
+/* 等号按键 */
+.calc-equals {
+    background: linear-gradient(135deg, #ff9500 0%, #ff8000 100%);
+    color: white;
+    border: 1px solid #ff8000;
+    font-weight: 600;
+}
+
+.calc-equals:hover {
+    background: linear-gradient(135deg, #ffaa00 0%, #ff9500 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 149, 0, 0.3);
+}
+
+/* 零键跨两列 */
+.calc-zero {
+    grid-column: span 2;
+    aspect-ratio: 2/1;
+    border-radius: 0;
+}
+
+.calc-zero:hover {
+    background: linear-gradient(135deg, #5a5a5a 0%, #4a4a4a 100%);
+}
+
+/* 按钮按下状态 */
+.calc-btn:active,
+.calc-btn.pressed {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.05s ease;
+}
+
+.calc-btn.pressed::before {
+    opacity: 0.3;
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+    .calc-btn:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .calc-btn:active {
+        transform: translateY(1px) scale(0.98);
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* 计算器显示器的字体大小自适应 */
+.calculator-display {
+    font-size: clamp(24px, 6vw, 48px);
+    line-height: 1.2;
+}
+
+/* 按钮字体大小自适应 */
+.calc-btn {
+    font-size: clamp(18px, 4vw, 24px);
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+    .calculator-buttons {
+        gap: 1px;
+    }
+    
+    .calc-btn {
+        font-size: 20px;
+    }
+    
+    .calculator-display {
+        font-size: 36px;
+        padding: var(--space-2xl) var(--space-lg);
+    }
+}
+
+@media (min-width: 768px) {
+    .calculator-buttons {
+        gap: 3px;
+    }
+    
+    .calc-btn {
+        font-size: 28px;
+    }
+    
+    .calculator-display {
+        font-size: 56px;
+        padding: var(--space-3xl) var(--space-2xl);
+    }
+}
+
+/* 计算器应用启动动画 */
+.calculator-app {
+    animation: calculatorSlideIn 0.3s ease-out;
+}
+
+@keyframes calculatorSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 显示器数字变化动画 */
+.calculator-display {
+    transition: opacity 0.1s ease;
+}
+
+/* 按钮点击波纹效果 */
+.calc-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.calc-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.calc-btn:active::after {
+    width: 200px;
+    height: 200px;
+}
+
+/* 深色主题优化 */
+@media (prefers-color-scheme: dark) {
+    .calculator-app {
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    }
+    
+    .calculator-display {
+        background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    }
+    
+    .calc-number {
+        background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);
+        border-color: #444;
+    }
+    
+    .calc-number:hover {
+        background: linear-gradient(135deg, #4a4a4a 0%, #3a3a3a 100%);
+    }
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+    .calc-btn {
+        border-width: 2px;
+    }
+    
+    .calculator-display::after {
+        height: 2px;
+        background: rgba(255, 255, 255, 0.8);
+    }
+}
+
+/* 照片应用 */
+.photos-app {
+    height: 100%;
+}
+
+.photos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    height: 100%;
+}
+
+.photo-item {
+    aspect-ratio: 1;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-4xl);
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-default);
+    overflow: hidden;
+}
+
+.photo-item:hover {
+    transform: scale(0.95);
+}
+
+/* 天气应用 */
+.weather-app {
+    text-align: center;
+    padding: var(--space-xl) 0;
+}
+
+.weather-current {
+    margin-bottom: 40px;
+}
+
+.weather-location {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-md);
+    opacity: 0.8;
+}
+
+.weather-temp {
+    font-size: var(--font-size-6xl);
+    font-weight: 100;
+    margin-bottom: var(--space-md);
+}
+
+.weather-desc {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-md);
+    opacity: 0.8;
+}
+
+.weather-range {
+    font-size: var(--font-size-md);
+    opacity: 0.6;
+}
+
+.weather-forecast {
+    background: var(--bg-primary);
+    backdrop-filter: var(--blur-md);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.forecast-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-md) 0;
+}
+
+.forecast-day {
+    font-size: var(--font-size-md);
+    width: 60px;
+    text-align: left;
+}
+
+.forecast-icon {
+    font-size: var(--font-size-2xl);
+}
+
+.forecast-temp {
+    font-size: var(--font-size-md);
+    opacity: 0.8;
+}
+
+/* 时钟应用 */
+.clock-app {
+    text-align: center;
+}
+
+.clock-display {
+    margin-bottom: var(--space-3xl);
+}
+
+.current-time {
+    font-size: var(--font-size-5xl);
+    font-weight: 100;
+    margin-bottom: var(--space-md);
+}
+
+.current-date {
+    font-size: var(--font-size-lg);
+    opacity: 0.7;
+}
+
+.clock-tabs {
+    display: flex;
+    background: var(--bg-primary);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-3xl);
+    overflow: hidden;
+}
+
+.clock-tab {
+    flex: 1;
+    padding: var(--space-md);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-default);
+}
+
+.clock-tab.active {
+    background: var(--bg-secondary);
+}
+
+.world-clocks {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.world-clock-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px var(--space-xl);
+    background: var(--bg-primary);
+    border-radius: var(--radius-md);
+}
+
+.world-clock-city {
+    font-size: var(--font-size-md);
+}
+
+.world-clock-time {
+    font-size: var(--font-size-xl);
+    font-weight: 300;
+}
+
+/* 信息应用 */
+.messages-app {
+    height: 100%;
+}
+
+.message-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    height: 100%;
+    overflow-y: auto;
+}
+
+.message-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: 15px;
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-default);
+}
+
+.message-item:hover {
+    background: var(--bg-secondary);
+}
+
+.message-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-round);
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-2xl);
+}
+
+.message-content {
+    flex: 1;
+}
+
+.message-name {
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+}
+
+.message-text {
+    font-size: var(--font-size-sm);
+    opacity: 0.8;
+    line-height: 1.3;
+}
+
+.message-time {
+    font-size: var(--font-size-xs);
+    opacity: 0.6;
+}
+
+/* 相机应用 */
+.camera-app {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #000;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.camera-viewfinder {
+    flex: 1;
+    position: relative;
+    background: linear-gradient(45deg, #1e3c72, #2a5298);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-4xl);
+}
+
+.camera-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.camera-grid {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 20%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.grid-line {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.camera-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-xl) var(--space-3xl);
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.camera-mode,
+.camera-gallery {
+    color: white;
+    font-size: var(--font-size-md);
+    width: 60px;
+    text-align: center;
+}
+
+.camera-shutter {
+    width: 70px;
+    height: 70px;
+    border-radius: var(--radius-round);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-default);
+}
+
+.camera-shutter:hover {
+    transform: scale(1.1);
+}
+
+.camera-shutter:active {
+    transform: scale(0.95);
+}
+
+.shutter-inner {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-round);
+    background: #f0f0f0;
+    border: 2px solid #ddd;
+}

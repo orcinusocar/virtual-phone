@@ -1,0 +1,186 @@
+/* 主屏幕界面组件样式 */
+
+/* 应用图标网格 */
+.app-grid {
+    position: relative;
+    z-index: 10;
+    padding: 80px var(--space-3xl) 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    justify-items: center;
+}
+
+/* 应用图标 */
+.app-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-default);
+}
+
+.app-icon:hover {
+    transform: scale(1.1);
+}
+
+.app-icon-bg {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: var(--space-sm);
+    background: var(--bg-secondary);
+    backdrop-filter: var(--blur-md);
+    border: 1px solid var(--border-primary);
+    box-shadow: var(--shadow-md);
+    transition: all var(--duration-fast) var(--ease-default);
+}
+
+.app-icon:active .app-icon-bg {
+    transform: scale(0.95);
+}
+
+.app-name {
+    font-size: var(--font-size-xs);
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    max-width: 70px;
+    line-height: 1.2;
+}
+
+/* 特定应用图标颜色 */
+.settings-icon { 
+    background: linear-gradient(135deg, var(--gray-1), var(--gray-2)); 
+}
+
+.notes-icon { 
+    background: linear-gradient(135deg, #FFD60A, var(--primary-orange)); 
+}
+
+.photos-icon { 
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); 
+}
+
+.calculator-icon { 
+    background: linear-gradient(135deg, var(--gray-5), var(--gray-3)); 
+}
+
+.weather-icon { 
+    background: linear-gradient(135deg, var(--primary-blue), #00C7BE); 
+}
+
+.clock-icon { 
+    background: linear-gradient(135deg, var(--gray-5), var(--gray-1)); 
+}
+
+.messages-icon { 
+    background: linear-gradient(135deg, var(--primary-green), #30D158); 
+}
+
+.camera-icon { 
+    background: linear-gradient(135deg, var(--gray-1), var(--gray-2)); 
+}
+
+.phone-icon { 
+    background: linear-gradient(135deg, var(--primary-green), #30D158); 
+}
+
+.safari-icon { 
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); 
+}
+
+.music-icon { 
+    background: linear-gradient(135deg, var(--primary-red), var(--primary-orange)); 
+}
+
+.mail-icon { 
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple)); 
+}
+
+/* Dock栏 */
+.dock {
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--space-xl);
+    background: var(--bg-primary);
+    backdrop-filter: var(--blur-lg);
+    border-radius: 25px;
+    padding: 15px var(--space-xl);
+    border: 1px solid var(--border-primary);
+    z-index: 10;
+}
+
+.dock .app-icon-bg {
+    width: 55px;
+    height: 55px;
+}
+
+/* 图标弹跳动画 */
+.app-icon.bounce {
+    animation: iconBounce 0.6s ease-in-out;
+}
+
+@keyframes iconBounce {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.2) rotate(5deg); }
+    50% { transform: scale(1.1) rotate(-5deg); }
+    75% { transform: scale(1.15) rotate(2deg); }
+    100% { transform: scale(1); }
+}
+
+/* 应用图标加载动画 */
+.app-icon.loading .app-icon-bg {
+    animation: iconLoading 1s ease-in-out infinite;
+}
+
+@keyframes iconLoading {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* 文件夹样式（为后续扩展预留） */
+.folder-icon {
+    position: relative;
+}
+
+.folder-icon::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: 8px;
+    background: var(--bg-tertiary);
+    border-radius: 12px;
+    z-index: -1;
+}
+
+.folder-preview {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+    z-index: 1;
+}
+
+.folder-preview .mini-icon {
+    background: var(--bg-secondary);
+    border-radius: 4px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iOS 手机模拟器</title>
+    
+    <!-- 核心样式 -->
+    <link rel="stylesheet" href="../css/core.css">
+    <link rel="stylesheet" href="../css/layouts/phone.css">
+    <link rel="stylesheet" href="../css/components/lockscreen.css">
+    <link rel="stylesheet" href="../css/components/homescreen.css">
+    <link rel="stylesheet" href="../css/components/apps.css">
+</head>
+<body>
+    <!-- 手机外壳 -->
+    <div class="phone-container">
+        <div class="phone-frame">
+            <!-- 锁屏界面 -->
+            <div id="lockscreen" class="screen lockscreen active">
+                <div class="status-bar">
+                    <div class="status-left">
+                        <span class="time" id="lockscreen-time">9:41</span>
+                    </div>
+                    <div class="status-right">
+                        <span class="battery">100%</span>
+                        <div class="battery-icon"></div>
+                        <div class="signal-bars">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 锁屏壁纸 -->
+                <div class="wallpaper lockscreen-wallpaper"></div>
+
+                <!-- 锁屏内容 -->
+                <div class="lockscreen-content">
+                    <div class="date-time">
+                        <div class="date" id="lockscreen-date">1月15日 星期一</div>
+                        <div class="time-large" id="lockscreen-time-large">09:41</div>
+                    </div>
+
+                    <!-- 通知卡片 -->
+                    <div class="notification-cards" id="notification-cards">
+                        <!-- 通知将动态生成 -->
+                    </div>
+
+                    <!-- 滑动解锁提示 -->
+                    <div class="unlock-hint">
+                        <div class="unlock-bar" id="unlock-bar">
+                            <div class="unlock-slider" id="unlock-slider">
+                                <div class="unlock-arrow">→</div>
+                            </div>
+                            <div class="unlock-text">滑动来解锁</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 主屏幕 -->
+            <div id="homescreen" class="screen homescreen">
+                <div class="status-bar">
+                    <div class="status-left">
+                        <span class="time" id="home-time">9:41</span>
+                    </div>
+                    <div class="status-right">
+                        <span class="battery">100%</span>
+                        <div class="battery-icon"></div>
+                        <div class="signal-bars">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 主屏幕壁纸 -->
+                <div class="wallpaper home-wallpaper"></div>
+
+                <!-- 应用图标网格 -->
+                <div class="app-grid">
+                    <div class="app-icon" data-app="settings">
+                        <div class="app-icon-bg settings-icon">
+                            <span>⚙️</span>
+                        </div>
+                        <div class="app-name">设置</div>
+                    </div>
+                    <div class="app-icon" data-app="notes">
+                        <div class="app-icon-bg notes-icon">
+                            <span>📝</span>
+                        </div>
+                        <div class="app-name">备忘录</div>
+                    </div>
+                    <div class="app-icon" data-app="photos">
+                        <div class="app-icon-bg photos-icon">
+                            <span>🖼️</span>
+                        </div>
+                        <div class="app-name">照片</div>
+                    </div>
+                    <div class="app-icon" data-app="calculator">
+                        <div class="app-icon-bg calculator-icon">
+                            <span>🔢</span>
+                        </div>
+                        <div class="app-name">计算器</div>
+                    </div>
+                    <div class="app-icon" data-app="weather">
+                        <div class="app-icon-bg weather-icon">
+                            <span>☀️</span>
+                        </div>
+                        <div class="app-name">天气</div>
+                    </div>
+                    <div class="app-icon" data-app="clock">
+                        <div class="app-icon-bg clock-icon">
+                            <span>⏰</span>
+                        </div>
+                        <div class="app-name">时钟</div>
+                    </div>
+                    <div class="app-icon" data-app="messages">
+                        <div class="app-icon-bg messages-icon">
+                            <span>💬</span>
+                        </div>
+                        <div class="app-name">信息</div>
+                    </div>
+                    <div class="app-icon" data-app="camera">
+                        <div class="app-icon-bg camera-icon">
+                            <span>📷</span>
+                        </div>
+                        <div class="app-name">相机</div>
+                    </div>
+                </div>
+
+                <!-- Dock栏 -->
+                <div class="dock">
+                    <div class="app-icon" data-app="phone">
+                        <div class="app-icon-bg phone-icon">
+                            <span>📞</span>
+                        </div>
+                    </div>
+                    <div class="app-icon" data-app="safari">
+                        <div class="app-icon-bg safari-icon">
+                            <span>🌐</span>
+                        </div>
+                    </div>
+                    <div class="app-icon" data-app="music">
+                        <div class="app-icon-bg music-icon">
+                            <span>🎵</span>
+                        </div>
+                    </div>
+                    <div class="app-icon" data-app="mail">
+                        <div class="app-icon-bg mail-icon">
+                            <span>✉️</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 主屏幕指示器 -->
+                <div class="home-indicator"></div>
+            </div>
+
+            <!-- 应用界面容器 -->
+            <div id="app-container" class="app-container">
+                <!-- 各个应用的界面将在这里动态显示 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript 模块 -->
+    <!-- 核心模块 -->
+    <script src="../js/apps/base-app.js"></script>
+    <script src="../js/utils/time-manager.js"></script>
+    <script src="../js/utils/notification.js"></script>
+    <script src="../js/core/app-manager.js"></script>
+    <script src="../js/components/lockscreen.js"></script>
+    <script src="../js/components/homescreen.js"></script>
+    
+    <!-- 应用模块 -->
+    <script src="../js/apps/settings.js"></script>
+    <script src="../js/apps/notes.js"></script>
+    <script src="../js/apps/calculator.js"></script>
+    <script src="../js/apps/photos.js"></script>
+    <script src="../js/apps/weather.js"></script>
+    <script src="../js/apps/clock.js"></script>
+    <script src="../js/apps/messages.js"></script>
+    <script src="../js/apps/camera.js"></script>
+    <script src="../js/apps/phone.js"></script>
+    <script src="../js/apps/safari.js"></script>
+    <script src="../js/apps/music.js"></script>
+    <script src="../js/apps/mail.js"></script>
+    
+    <!-- 主应用 -->
+    <script src="../js/core/app.js"></script>
+</body>
+</html>

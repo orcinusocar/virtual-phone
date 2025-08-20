@@ -1,0 +1,56 @@
+{
+  "name": "ios-phone-simulator",
+  "version": "1.0.0",
+  "description": "一个使用HTML、CSS和JavaScript实现的iOS风格手机界面模拟器",
+  "main": "build/index.html",
+  "scripts": {
+    "dev": "python -m http.server 8080",
+    "serve": "npx http-server . -p 8080 -c-1",
+    "build": "node build/build.js",
+    "deploy": "npm run build && npm run deploy:gh-pages",
+    "deploy:gh-pages": "gh-pages -d build",
+    "lint:css": "stylelint \"css/**/*.css\"",
+    "lint:js": "eslint \"js/**/*.js\"",
+    "test": "echo \"暂无测试\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/ios-phone-simulator.git"
+  },
+  "keywords": [
+    "ios",
+    "simulator",
+    "mobile",
+    "ui",
+    "javascript",
+    "css",
+    "html",
+    "responsive",
+    "glass-morphism"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/your-username/ios-phone-simulator/issues"
+  },
+  "homepage": "https://github.com/your-username/ios-phone-simulator#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "gh-pages": "^6.0.0",
+    "eslint": "^8.0.0",
+    "stylelint": "^15.0.0",
+    "stylelint-config-standard": "^34.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "Chrome >= 88",
+    "Firefox >= 87",
+    "Safari >= 14",
+    "Edge >= 88"
+  ]
+}
